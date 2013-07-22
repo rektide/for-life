@@ -18,15 +18,11 @@ module.exports = function(grunt) {
 			},
 		},
 		sweet: {
-			dist: {
-				files: {
-					'dist/for-life-unsweet.js': ['for-life-sweet.js']
-				}
-			}
+			"content_dir": "sweet",
+			"publish_dir": "dist"
 		}
 	})
-	grunt.loadTasks('tasks')
-	grunt.loadNpmTasks('grunt-traceur')
 	grunt.loadNpmTasks('grunt-sweet')
-	grunt.registerTask('default', ['sweet','traceur'])
+	grunt.loadNpmTasks('grunt-traceur')
+	grunt.registerTask('default', ['sweet', 'traceur:dist'])
 };
