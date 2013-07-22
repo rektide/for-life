@@ -1,5 +1,5 @@
 
-var Queue= function()
+var Queue= function(){}
 var forEach= Array.prototype.forEach;
 
 /**
@@ -89,7 +89,7 @@ function makeMutationObserver(tag){
 	  put= queue.put.bind(queue),
 	  mutationAddObserve= forThing(put, val.getElementsByTagName(this.tag)),
 	  mutationObserver= forThing(mutationAddObserve, val.addedNodes),
-	  mutationsObserver= forThing(mutationObserver(mutationObserver)
+	  mutationsObserver= forThing(mutationObserver)
 	return new MutationObserver(mutationsObserver)
 }
 /*

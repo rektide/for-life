@@ -24,6 +24,6 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-traceur": "0.0.1",
-    "grunt-sweet": "~0.2.0"
+    "sweet.js": "~0.1.3"
   }
 }

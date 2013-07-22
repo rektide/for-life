@@ -16,13 +16,8 @@ module.exports = function(grunt) {
 					'dist/for-life-traceur.js': ['for-life.js']
 				}
 			},
-		},
-		sweet: {
-			"content_dir": "sweet",
-			"publish_dir": "dist"
 		}
 	})
-	grunt.loadNpmTasks('grunt-sweet')
 	grunt.loadNpmTasks('grunt-traceur')
-	grunt.registerTask('default', ['sweet', 'traceur:dist'])
+	grunt.registerTask('default', ['traceur:dist'])
 };
