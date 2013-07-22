@@ -1,0 +1,28 @@
+{
+  "name": "for-life",
+  "version": "1.0.0",
+  "description": "A very low rent Selection mechanism backed by MutationObserver",
+  "main": "for-life.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rektide/for-life.git"
+  },
+  "keywords": [
+    "MutationObserver",
+    "queue",
+    "promises",
+    "live-dom"
+  ],
+  "author": "rektide de la faye <rektide@voodoowarez.com>",
+  "license": "X.org Preferred",
+  "bugs": {
+    "url": "https://github.com/rektide/for-life/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-traceur": "0.0.1"
+  }
+}
