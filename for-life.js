@@ -1,7 +1,7 @@
-module "for-life"{
-import { Queue } from "q"
-export Tag
-let forEach= Array.prototype.forEach
+module forLife {
+
+import { Queue } from "q";
+var forEach= Array.prototype.forEach;
 
 /**
   Returns a Queue which exposes all elements for a Tag name
@@ -10,30 +10,33 @@ let forEach= Array.prototype.forEach
   @param document (optional) a document to begin looking through
   @returns a Queue of all elements for a given Tag, adorned with a addDocument function.
 */
-function Tag(tag,predicate,document){
-	if(!(this instanceof Tag)){
-		return new Tag(tag,predicate,document)
+export var TagFn= (function(){
+	function Tag(tag,predicate,document){
+		if(!(this instanceof Tag)){
+			return new Tag(tag,predicate,document)
+		}
+		this.tag= tag
+		if(typeof predicate !== "function"){
+			document= predicate
+		}else{
+			this.predicate= predicate
+		}
+		this.queue= new Queue()
+		this.queue.addDocument= this.addDocument.bind(this)
+		if(document){
+			this.addDocument(document)
+		}
+		return this.queue
 	}
-	this.tag= tag
-	if(typeof predicate !== "function"){
-		document= predicate
-	}else{
-		this.predicate= predicate
-	}
-	this.queue= new Queue()
-	this.queue.addDocument= this.addDocument.bind(this)
-	if(document){
-		this.addDocument(document)
-	}
-	return this.queue
-}
+	return Tag
+}())
 /**
   Adds a new document to observation.
 
   Note that the Tag Queue has a bound copy of this function.
   @returns the original Queue object
 */
-Tag.prototype.addDocument= function(document){
+TagFn.prototype.addDocument= function(document){
 	if(document){
 		var mutationObserver= makeMutationObserver(this)
 		mutationObserver.observe(document, {childList: true})
