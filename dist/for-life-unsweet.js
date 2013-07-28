@@ -38,7 +38,7 @@ function makeMutationObserver(tag$8) {
             $1 = arguments[0];
             forEach$1.call($1.addedNodes, this);
         }.bind(mutationAddObserve$14), mutationsObserver$16 = function (val$19) {
-            forEach$1.call($1, this);
+            forEach$1.call(val$19, this);
         }.bind(mutationObserver$15);
     return new MutationObserver(mutationsObserver$16);
 }

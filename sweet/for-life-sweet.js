@@ -82,7 +82,7 @@ module.exports.prototype.addDocument= function(document){
 */
 macro forThing {
 	case ($a:expr, $b:expr) => {(function(val){$1=arguments[0]; forEach.call($b, this)}).bind($a)}
-	case ($a:expr) =>          {(function(val){forEach.call($1,this)}).bind($a)}
+	case ($a:expr) =>          {(function(val){forEach.call(val,this)}).bind($a)}
 }
 function makeMutationObserver(tag){
 	var queue= tag.queue, 
