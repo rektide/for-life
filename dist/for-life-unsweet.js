@@ -32,11 +32,13 @@ module.exports.prototype.addDocument = function (document$5) {
 };
 function makeMutationObserver(tag$8) {
     var queue$12 = tag$8.queue, put$13 = queue$12.put.bind(queue$12), mutationAddObserve$14 = function (val$17) {
-            forEach$1.call(val.getElementsByTagName(this.tag), this);
+            $1 = arguments[0];
+            forEach$1.call($1.getElementsByTagName(this.tag), this);
         }.bind(put$13), mutationObserver$15 = function (val$18) {
-            forEach$1.call(val.addedNodes, this);
+            $1 = arguments[0];
+            forEach$1.call($1.addedNodes, this);
         }.bind(mutationAddObserve$14), mutationsObserver$16 = function (val$19) {
-            forEach$1.call(val$19, this);
+            forEach$1.call($1, this);
         }.bind(mutationObserver$15);
     return new MutationObserver(mutationsObserver$16);
 }
