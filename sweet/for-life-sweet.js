@@ -81,14 +81,14 @@ module.exports.prototype.addDocument= function(document){
 // SWEET.JS MACRO EDITION
 */
 macro forThing {
-	case ($a:expr, $b:expr) => {(function(val){forEach.call($b, this)}).bind($a)}
-	case ($a:expr) =>          {(function(val){forEach.call(val,this)}).bind($a)}
+	case ($a:expr, $b:expr) => {(function($1){$1=arguments[0]; forEach.call($b, this)}).bind($a)}
+	case ($a:expr) =>          {(function($1){forEach.call($1,this)}).bind($a)}
 }
 function makeMutationObserver(tag){
 	var queue= tag.queue, 
 	  put= queue.put.bind(queue),
-	  mutationAddObserve= forThing(put, val.getElementsByTagName(this.tag)),
-	  mutationObserver= forThing(mutationAddObserve, val.addedNodes),
+	  mutationAddObserve= forThing(put, $1.getElementsByTagName(this.tag)),
+	  mutationObserver= forThing(mutationAddObserve, $1.addedNodes),
 	  mutationsObserver= forThing(mutationObserver)
 	return new MutationObserver(mutationsObserver)
 }
