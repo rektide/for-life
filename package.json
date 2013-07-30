@@ -4,7 +4,7 @@
 	"description": "A very low rent Selection mechanism backed by MutationObserver",
 	"main": "for-life.js",
 	"scripts": {
-		"sweet": "sjs -o dist/for-life-unsweet.js sweet/for-life-sweet.js"
+		"prepublish": "sjs -o dist/for-life-unsweet.js sweet/for-life-sweet.js"
 	},
 	"repository": {
 		"type": "git",
